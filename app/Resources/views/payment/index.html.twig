@@ -1,0 +1,28 @@
+{% extends 'layout_manage.html.twig' %}
+
+{% block body %}
+    <div class="timeline timeline-line-dashed">
+    {% for payment in payments %}
+        <div class="timeline-item">
+            <div class="timeline-point timeline-point-default">
+                <i class="fa fa-money"></i>
+            </div>
+            <div class="timeline-point timeline-point-success">
+                <i class="fa fa-money" aria-hidden="true"></i>
+            </div>
+            <div class="timeline-event {{ (payment.status == 'todo') ? 'timeline-event-info' : 'timeline-event-disable' }}">
+                <div class="timeline-heading">
+                    <h4>{{ payment.name }}</h4>
+                </div>
+                <div class="timeline-body">
+                    <p>{{ payment.amount }} {{ payment.currency }}</p>
+                </div>
+            </div>
+        </div>
+
+        <span class="timeline-label">
+            <span class="label label-danger">{{ payment.added }}</span>
+        </span>
+    {% endfor %}
+    </div>
+{% endblock %}

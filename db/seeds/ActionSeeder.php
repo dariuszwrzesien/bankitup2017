@@ -26,6 +26,13 @@ class ActionSeeder extends AbstractSeed
             'value' => 500,
             'status' => Action::STATUS_TODO,
             'added' => '2017-05-20 17:45'
+        ],
+        [
+            'id' => 4,
+            'definition_id' => 4,
+            'value' => 300,
+            'status' => Action::STATUS_PAID,
+            'added' => '2017-05-20 00:45'
         ]
     ];
 
