@@ -18,8 +18,7 @@ class AddedAction extends AbstractMigration
     {
         $table = $this->table('action');
 
-        $table->addColumn('name', 'string', ['limit' => 100])
-            ->addColumn('definition_id', 'integer', ['null' => true])
+        $table->addColumn('definition_id', 'integer', ['null' => true])
             ->addColumn('value', 'integer')
             ->addColumn('status', 'string', ['limit' => 255])
             ->create();
