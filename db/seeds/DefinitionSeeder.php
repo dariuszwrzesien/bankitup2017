@@ -26,6 +26,13 @@ class DefinitionSeeder extends AbstractSeed
             'transfer_title' => 'Opłata za zakup domeny payasisstant.pl.',
             'user_id' => 1
         ],
+        [
+            'id' => 4,
+            'name' => 'Opłata za sprzedaż na Allegro.',
+            'transfer_iban' => 'PL91109010140000071219812877',
+            'transfer_title' => 'Prowizja allegro.',
+            'user_id' => 1
+        ],
     ];
 
     public function run()

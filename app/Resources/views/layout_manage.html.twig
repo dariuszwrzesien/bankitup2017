@@ -7,7 +7,9 @@
 
     <title>{% block title %}PayAssistant{% endblock %}</title>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap-responsive-timeline/css/timeline.min.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/app/app.css') }}">
 </head>
 <body id="page-{{ app.request.attributes.get("_route") }}">
@@ -46,7 +48,6 @@
 
     <footer>
         <hr>
-        Symfony {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }}
     </footer>
 </div>
 

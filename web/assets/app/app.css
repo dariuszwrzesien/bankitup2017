@@ -52,6 +52,11 @@ table tbody .error-message {
     animation: spin 1s linear infinite;
 }
 
+.timeline-event-disable {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
 @-moz-keyframes spin {
     100% {
         -moz-transform: rotate(360deg);
