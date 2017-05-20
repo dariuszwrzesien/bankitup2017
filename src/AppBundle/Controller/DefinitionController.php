@@ -12,7 +12,7 @@ use PayAssistantBundle\Command\CreateDefinitionCommand;
 class DefinitionController extends AppController
 {
     /**
-     * @Route("/definitions/create", name="create_definition")
+     * @Route("/definitions/create", name="definition_create")
      * @Method("POST")
      * @param Request $request
      * @return JsonResponse
