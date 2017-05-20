@@ -10,7 +10,7 @@ class Action
     private $id;
     private $definitionId;
     private $value;
-    private $status = '';
+    private $status = self::STATUS_TODO;
 
     public function __construct(int $id = null)
     {
@@ -53,8 +53,19 @@ class Action
 
     public function setStatus(string $status) : Action
     {
+        if (! in_array(status, $this->getAvailableStatues())) {
+            throw new \InvalidArgumentException();
+        }
+
         $this->status = $status;
 
         return $this;
+    }
+
+    public function getAvailableStatues()
+    {
+        return [
+            self::STATUS_TODO, self::STATUS_PAID
+        ];
     }
 }

@@ -5,7 +5,7 @@ namespace PayAssistantBundle\Entity;
 class Definition
 {
     private $id;
-    private $name;
+    private $name = '';
     private $transferIban = '';
     private $transferTitle = '';
 
