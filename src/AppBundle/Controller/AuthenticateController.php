@@ -5,24 +5,17 @@ namespace AppBundle\Controller;
 use AppBundle\Exception\InvalidCredentialsException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class AuthenticateController extends AppController
 {
     /**
-     * @Route("/auth", name="auth")
-     * @Method("GET")
-     */
-    public function indexAction(Request $request)
-    {
-        return $this->json([]);
-    }
-
-    /**
      * @Route("/auth", name="auth_authenticate")
      * @Method("POST")
      */
-    public function authenticateAction(Request $request)
+    public function authenticateAction(Request $request) : JsonResponse
     {
         $auth = $this->get('app.service.auth');
         $sessionToken = uniqid();
@@ -37,8 +30,20 @@ class AuthenticateController extends AppController
             throw new InvalidCredentialsException();
         }
 
-        return $this->json([
-            'token' => $sessionToken
-        ]);
+        $request->getSession()->set('token', $sessionToken);
+
+        return $this->json(['token' => $sessionToken]);
+    }
+
+    /**
+     * @Route("/logout", name="auth_unauthenticate")
+     * @Method("GET")
+     */
+    public function unauthenticateAction(Request $request) : RedirectResponse
+    {
+        // should remove token from database ;)
+        $request->getSession()->clear();
+
+        return $this->redirectToRoute('homepage');
     }
 }

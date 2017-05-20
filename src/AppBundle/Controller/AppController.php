@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Service\AuthService;
+use AppBundle\Service\AuthUserService;
 use CqrsBundle\Commanding\CommandBusInterface;
 use CqrsBundle\Querying\QueryDispatcherInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

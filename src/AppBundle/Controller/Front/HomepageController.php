@@ -15,9 +15,7 @@ class HomepageController extends AppController
      */
     public function indexAction() : Response
     {
-        return $this->render('homepage/index.html.twig', [
-
-        ]);
+        return $this->render('homepage/index.html.twig');
     }
 
     /**
@@ -26,8 +24,19 @@ class HomepageController extends AppController
      */
     public function howToAction() : Response
     {
-        return $this->render('homepage/howto.html.twig', [
+        return $this->render('homepage/howto.html.twig');
+    }
 
-        ]);
+    /**
+     * @Route("/login", name="login")
+     * @Method("GET")
+     */
+    public function loginAction() : Response
+    {
+        if ($this->authUser()->isAuthenticated()) {
+            return $this->redirectToRoute('builder');
+        }
+
+        return $this->render('homepage/login.html.twig');
     }
 }

@@ -10,40 +10,41 @@
     <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/app/cover.css') }}">
 </head>
-
-<body>
-    <div class="site-wrapper">
-        <div class="site-wrapper-inner">
-            <div class="cover-container">
-                <div class="masthead clearfix">
-                    <div class="inner">
-                        <h3 class="masthead-brand">PayAssistant</h3>
-                        <nav>
-                            <ul class="nav masthead-nav">
-                                <li{% if app.request.attributes.get("_route") == 'homepage' %} class="active"{% endif %}>
-                                    <a href="{{ path('homepage') }}">Strona główna</a></li>
-                                <li{% if app.request.attributes.get("_route") == 'howto' %} class="active"{% endif %}>
-                                    <a href="{{ path('howto') }}">Jak to działa?</a></li>
-                                <li><a href="{{ path('builder') }}">Strefa użytkownika</a></li>
-                            </ul>
-                        </nav>
-                    </div>
+<body id="page-{{ app.request.attributes.get("_route") }}">
+<div class="site-wrapper">
+    <div class="site-wrapper-inner">
+        <div class="cover-container">
+            <div class="masthead clearfix">
+                <div class="inner">
+                    <h3 class="masthead-brand">PayAssistant</h3>
+                    <nav>
+                        <ul class="nav masthead-nav">
+                            <li{% if app.request.attributes.get("_route") == 'homepage' %} class="active"{% endif %}>
+                                <a href="{{ path('homepage') }}">Strona główna</a></li>
+                            <li{% if app.request.attributes.get("_route") == 'howto' %} class="active"{% endif %}>
+                                <a href="{{ path('howto') }}">Jak to działa?</a></li>
+                            <li{% if app.request.attributes.get("_route") == 'login' %} class="active"{% endif %}>
+                                <a href="{{ path('builder') }}">Strefa użytkownika</a></li>
+                        </ul>
+                    </nav>
                 </div>
+            </div>
 
-                <div class="inner cover">
-                    {% block body %}{% endblock %}
-                </div>
+            <div class="inner cover">
+                {% block body %}{% endblock %}
+            </div>
 
-                <div class="mastfoot">
-                    <div class="inner">
-                        <p>Made with <span>&hearts;</span> in Poland.</p>
-                    </div>
+            <div class="mastfoot">
+                <div class="inner">
+                    <p>Made with <span>&hearts;</span> in Poland.</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <script src="{{ asset('assets/jquery/jquery-3.2.1.js') }}"></script>
-    <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/jquery/jquery-3.2.1.js') }}"></script>
+<script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/app/app.js') }}"></script>
 </body>
 </html>

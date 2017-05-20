@@ -5,6 +5,7 @@ namespace AppBundle\EventListener;
 use AppBundle\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use PayAssistantBundle\Exception\ResourceDoesNotExistException;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
@@ -20,7 +21,12 @@ class ExceptionListener
 
     public function onKernelException(GetResponseForExceptionEvent $event) : void
     {
-        $this->setupApiException($event);
+        if (strpos($event->getRequest()->getRequestUri(), 'api/') !== false) {
+            $this->setupApiException($event);
+            return;
+        }
+
+        $this->setupFrontException($event);
     }
 
     private function mapExceptionToStatusCode(\Exception $exception) : int
@@ -50,7 +56,7 @@ class ExceptionListener
         return $message;
     }
 
-    private function setupApiException(GetResponseForExceptionEvent $event)
+    private function setupApiException(GetResponseForExceptionEvent $event) : void
     {
         $exception = $event->getException();
 
@@ -64,5 +70,17 @@ class ExceptionListener
         );
 
         $event->setResponse($response);
+    }
+
+    private function setupFrontException(GetResponseForExceptionEvent $event) : void
+    {
+        $exception = $event->getException();
+
+        if ($exception instanceof AccessDeniedException) {
+            $event->setResponse(new RedirectResponse('login'));
+            return;
+        }
+
+        // default Symfony exception handler
     }
 }
