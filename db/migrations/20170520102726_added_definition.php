@@ -17,11 +17,16 @@ class AddedDefinition extends AbstractMigration
 
     private function createDefinitionTable()
     {
-        $this->table('definition')
-            ->addColumn('name', 'string', ['limit' => 100])
+        $table = $this->table('definition');
+
+        $table->addColumn('name', 'string', ['limit' => 100])
             ->addColumn('transfer_iban', 'string', ['limit' => 50])
-            ->addColumn('transfer_title', 'string', ['limit' => 255])
+            ->addColumn('transfer_title', 'string', ['limit' => 250])
+            ->addColumn('user_id', 'integer')
             ->create();
+
+        $table->addForeignKey('user_id', 'user', 'id', ['delete' => 'CASCADE', 'update' => 'NO_ACTION'])
+            ->save();
     }
 
     private function removeDefinitionTable()

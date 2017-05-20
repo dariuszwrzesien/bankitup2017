@@ -2,12 +2,12 @@
 
 namespace AppBundle\Query\Dto;
 
-class UserTotalGivenCollectionDto extends \ArrayIterator implements \JsonSerializable
+class PaymentsToDoCollectionDto extends \ArrayIterator implements \JsonSerializable
 {
     public function __construct(array $array = [], $flags = 0)
     {
-        parent::__construct(array_map(function ($totalSent) {
-            return new TotalTipsGivenByUserDto($totalSent);
+        parent::__construct(array_map(function ($totalReceived) {
+            return new PaymentToDoDto($totalReceived);
         }, $array), $flags);
     }
 

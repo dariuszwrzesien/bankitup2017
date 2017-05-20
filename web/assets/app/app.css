@@ -72,9 +72,16 @@ table tbody .error-message {
 }
 
 .navbar-brand {
-    padding: 2px 0;
+    padding: 3px 0;
 }
 
 .navbar-brand img {
     height: 50px;
+}
+
+@media (min-width: 768px) {
+    .navbar-nav>li>a {
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
 }

@@ -1,7 +1,8 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Api;
 
+use AppBundle\Controller\ApiController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -9,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use PayAssistantBundle\Command\CreateDefinitionCommand;
 
-class DefinitionController extends AppController
+class DefinitionController extends ApiController
 {
     /**
      * @Route("/definitions/create", name="definition_create")

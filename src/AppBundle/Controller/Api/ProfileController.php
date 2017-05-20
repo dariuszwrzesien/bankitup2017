@@ -3,23 +3,25 @@
 namespace AppBundle\Controller\Api;
 
 use AppBundle\Controller\ApiController;
-use AppBundle\Query\GetPaymentsToDoQuery;
+use AppBundle\Query\GetUserByIdQuery;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
-class PaymentController extends ApiController
+class ProfileController extends ApiController
 {
     /**
-     * @Route("/api/payments", name="payment_to_pay")
+     * @Route("/api/profile", name="profile_details")
      * @Method("GET")
      * @return JsonResponse
      */
-    function toPayAction(): JsonResponse
+    function detailsAction(): JsonResponse
     {
-        $payments = $this->queryDispatcher()->execute(new GetPaymentsToDoQuery($this->authUser()->getUserId()));
+        $profile = $this->queryDispatcher()->execute(new GetUserByIdQuery(
+            $this->authUser()->getUserId()
+        ));
 
-        return $this->json($payments, Response::HTTP_OK);
+        return $this->json($profile, Response::HTTP_OK);
     }
 }
