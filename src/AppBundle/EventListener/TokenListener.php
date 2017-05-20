@@ -2,7 +2,7 @@
 
 namespace AppBundle\EventListener;
 
-use AppBundle\Controller\AuthenticateController;
+use AppBundle\Controller\ApiController;
 use AppBundle\Exception\AccessDeniedException;
 use AppBundle\Repository\AuthRepositoryInterface;
 use AppBundle\Service\AuthUserService;
@@ -27,7 +27,7 @@ class TokenListener
         $token = empty($tokenFromQueryParam) ? $tokenFromHttpHeader : $tokenFromQueryParam;
         $controller = $event->getController()[0];
 
-        if (($controller instanceof AuthenticateController) === false
+        if (($controller instanceof ApiController) === true
             && ($controller instanceof ExceptionController) === false
         ) {
             $user = $this->authRepository->getUserByTokenKey($token);
