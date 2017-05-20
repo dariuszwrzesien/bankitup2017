@@ -51,5 +51,7 @@ class Definition
     public function setTransferTitle(string $transferTitle) : Definition
     {
         $this->transferTitle = $transferTitle;
+
+        return $this;
     }
 }

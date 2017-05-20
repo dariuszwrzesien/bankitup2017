@@ -19,8 +19,8 @@ class AddedDefinition extends AbstractMigration
     {
         $this->table('definition')
             ->addColumn('name', 'string', ['limit' => 100])
-            ->addColumn('transferIban', 'string', ['limit' => 50])
-            ->addColumn('transferTitle', 'string', ['limit' => 255])
+            ->addColumn('transfer_iban', 'string', ['limit' => 50])
+            ->addColumn('transfer_title', 'string', ['limit' => 255])
             ->create();
     }
 

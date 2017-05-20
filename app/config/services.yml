@@ -62,6 +62,10 @@ services:
     class: AppBundle\Repository\TipDoctrineRepository
     arguments: ["@doctrine.orm.entity_manager"]
 
+  app.repository.definition:
+    class: AppBundle\Repository\DefinitionDoctrineRepository
+    arguments: ["@doctrine.orm.entity_manager"]
+
   app.command_handler.give_tip:
     class: PayAssistantBundle\Command\Handler\GiveTipHandler
     arguments: ["@app.event_bus", "@app.repository.tip", "@app.repository.user"]
@@ -69,3 +73,7 @@ services:
   app.command_handler.connect_user:
     class: PayAssistantBundle\Command\Handler\ConnectUserHandler
     arguments: ["@app.event_bus", "@app.repository.user"]
+
+  app.command_handler.create_definition:
+    class: PayAssistantBundle\Command\Handler\CreateDefinitionHandler
+    arguments: ["@app.event_bus", "@app.repository.definition"]
