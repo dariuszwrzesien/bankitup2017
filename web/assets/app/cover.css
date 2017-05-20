@@ -162,6 +162,9 @@ body {
   }
 }
 
+/**
+ * Additional styles - global
+ */
 .mastfoot span {
   color: red;
 }
@@ -176,4 +179,46 @@ body {
 
 .site-wrapper {
   background: rgba(0, 0, 0, 0.6);
+}
+
+.alert {
+  text-shadow: none;
+  border-radius: 0;
+}
+
+/**
+ * Additional styles - login form
+ */
+
+#page-login .inner.cover form {
+  background: #fff;
+  padding: 50px;
+}
+
+#page-login .inner.cover form .form-signin {
+  max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#page-login .inner.cover form .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+}
+
+#page-login .inner.cover form .btn,
+#page-login .inner.cover form input {
+  border-radius: 0;
+}
+
+#page-login .inner.cover form input[type="text"] {
+  margin-bottom: 20px;
+}
+
+#page-login .inner.cover form input[type="password"] {
+  margin-bottom: 20px;
 }

@@ -21,7 +21,7 @@ class AuthService
             return false;
         }
 
-        $this->authRepository->setTokenToUser($user, $sessionToken);
+        $this->authRepository->assignTokenToUser($user, $sessionToken);
 
        return true;
     }

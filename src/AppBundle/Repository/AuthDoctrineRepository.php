@@ -26,7 +26,7 @@ class AuthDoctrineRepository implements AuthRepositoryInterface
         return $user ?? new User(User::ANONYMOUS_ID);
     }
 
-    public function getUserByTokenKey(string $sessionToken) : User
+    public function getUserBySessionToken(string $sessionToken) : User
     {
         $user = $this->entityManager
             ->getRepository(User::class)
@@ -35,7 +35,7 @@ class AuthDoctrineRepository implements AuthRepositoryInterface
         return $user ?? new User(User::ANONYMOUS_ID);
     }
 
-    public function setTokenToUser(User $user, string $sessionToken) : void
+    public function assignTokenToUser(User $user, string $sessionToken) : void
     {
         $user->setAuthTokenKey($sessionToken);
 
