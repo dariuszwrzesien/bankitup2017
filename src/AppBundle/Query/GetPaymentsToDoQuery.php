@@ -6,7 +6,6 @@ use AppBundle\Query\Dto\PaymentsToDoCollectionDto;
 use CqrsBundle\Querying\QueryInterface;
 use Doctrine\DBAL\Connection as Dbal;
 use PayAssistantBundle\Entity\Action;
-use PayAssistantBundle\Entity\User;
 
 class GetPaymentsToDoQuery implements QueryInterface
 {
