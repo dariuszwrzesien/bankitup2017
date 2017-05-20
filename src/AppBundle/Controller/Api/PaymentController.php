@@ -3,6 +3,7 @@
 namespace AppBundle\Controller\Api;
 
 use AppBundle\Controller\ApiController;
+use AppBundle\Query\GetPaymentsToDoQuery;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -17,19 +18,8 @@ class PaymentController extends ApiController
      */
     function toPayAction(): JsonResponse
     {
-        return $this->json([
-            [
-                'id' => 1,
-                'name' => 'Czynsz za mieszkanie',
-                'amount' => 60000,
-                'currency' => 'PLN'
-            ],
-            [
-                'id' => 2,
-                'name' => 'Faktura PLAY',
-                'amount' => 12200,
-                'currency' => 'PLN'
-            ]
-        ], Response::HTTP_OK);
+        $payments = $this->queryDispatcher()->execute(new GetPaymentsToDoQuery($this->authUser()->getUserId()));
+
+        return $this->json($payments, Response::HTTP_OK);
     }
 }

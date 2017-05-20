@@ -19,11 +19,13 @@ class AddedAction extends AbstractMigration
         $table = $this->table('action');
 
         $table->addColumn('definition_id', 'integer', ['null' => true])
+            ->addColumn('added', 'datetime')
+            ->addColumn('paid', 'datetime', ['null' => true])
             ->addColumn('value', 'integer')
-            ->addColumn('status', 'string', ['limit' => 255])
+            ->addColumn('status', 'string', ['limit' => 20])
             ->create();
 
-        $table->addForeignKey('definition_id', 'definition', 'id', array('delete'=> 'SET_NULL', 'update'=> 'NO_ACTION'))
+        $table->addForeignKey('definition_id', 'definition', 'id', ['delete' => 'SET_NULL', 'update' => 'NO_ACTION'])
             ->save();
     }
 
