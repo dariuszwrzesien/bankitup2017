@@ -1,0 +1,34 @@
+PayAssistantBundle\Entity\Definition:
+    type: entity
+    table: definition
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+        transferIban:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: transfer_iban
+        transferTitle:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: transfer_title
+    lifecycleCallbacks: {  }
