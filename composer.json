@@ -50,7 +50,7 @@
         "unit": "php vendor/phpunit/phpunit/phpunit --testdox --configuration tests/Unit/phpunit.xml",
         "integration": "php vendor/phpunit/phpunit/phpunit --testdox --configuration tests/Integration/phpunit.xml",
         "phinx-migrate-development": "vendor/bin/phinx migrate -e development",
-        "phinx-seed": "vendor/bin/phinx seed:run -s DefinitionSeeder -s ActionSeeder"
+        "phinx-seed": "vendor/bin/phinx seed:run -s UserSeeder -s DefinitionSeeder -s ActionSeeder"
     },
     "config": {
         "platform": {
