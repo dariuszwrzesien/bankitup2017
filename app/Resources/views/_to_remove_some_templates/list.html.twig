@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <table class="table table-striped table-hover table-bordered">
+        <thead>
+        <tr>
+            <th>Email subject</th>
+            <th class="text-center">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for template in templates %}
+            <tr>
+                <td>{{ template.subject }}</td>
+                <td class="text-center">
+                    <a href="{{ path('email_template_edit', {'id' : template.id}) }}" class="btn btn-default btn-sm">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2" class="text-center">No email templates.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block header %}
+    Email templates
+{% endblock %}
