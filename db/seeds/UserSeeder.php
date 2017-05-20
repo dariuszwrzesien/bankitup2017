@@ -32,7 +32,7 @@ class UserSeeder extends AbstractSeed
     {
         $table = $this->table('user');
 
-        foreach($this->users as $user) {
+        foreach ($this->users as $user) {
             $table->insert($user)->save();
         }
     }

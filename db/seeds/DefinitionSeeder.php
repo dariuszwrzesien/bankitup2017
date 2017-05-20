@@ -8,20 +8,20 @@ class DefinitionSeeder extends AbstractSeed
         [
             'id' => 1,
             'name' => 'Płatność za faturę PLAY.',
-            'transferIban' => 'PL61109010140000071219812874',
-            'transferTitle' => 'Opłata za fakturę numer: 1234.',
+            'transfer_iban' => 'PL61109010140000071219812874',
+            'transfer_title' => 'Opłata za fakturę numer: 1234.',
         ],
         [
             'id' => 2,
             'name' => 'Opłata za czynsz.',
-            'transferIban' => 'PL71109010140000071219812875',
-            'transferTitle' => 'Czynsz za miesiąc maj.',
+            'transfer_iban' => 'PL71109010140000071219812875',
+            'transfer_title' => 'Czynsz za miesiąc maj.',
         ],
         [
             'id' => 3,
             'name' => 'Zakup domeny.',
-            'transferIban' => 'PL81109010140000071219812876',
-            'transferTitle' => 'Opłata za zakup domeny payasisstant.pl.',
+            'transfer_iban' => 'PL81109010140000071219812876',
+            'transfer_title' => 'Opłata za zakup domeny payasisstant.pl.',
         ],
     ];
 
