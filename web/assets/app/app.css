@@ -44,10 +44,6 @@ table tbody .error-message {
     color: red;
 }
 
-.similar-organizations {
-    margin: 20px 0;
-}
-
 .loader-animation {
     position: relative;
     margin: 0 5px 0 0;
@@ -73,4 +69,12 @@ table tbody .error-message {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
     }
+}
+
+.navbar-brand {
+    padding: 2px 0;
+}
+
+.navbar-brand img {
+    height: 50px;
 }

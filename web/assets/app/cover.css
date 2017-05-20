@@ -165,12 +165,16 @@ body {
 /**
  * Additional styles - global
  */
-.mastfoot span {
+.mastfoot .heart {
   color: red;
 }
 
+.mastfoot span {
+  color: white;
+}
+
 body {
-  background: url(http://ingenieriaysupervision.com/wp-content/uploads/2015/03/SOBRE-NOSOTROS-1024x643.jpg) no-repeat center center fixed;
+  background: url("../background.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -184,6 +188,14 @@ body {
 .alert {
   text-shadow: none;
   border-radius: 0;
+}
+
+.masthead-brand {
+    margin: 0;
+}
+
+.masthead-brand img {
+  height: 60px;
 }
 
 /**
