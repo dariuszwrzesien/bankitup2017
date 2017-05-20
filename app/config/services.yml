@@ -1,0 +1,71 @@
+parameters:
+
+services:
+  app.exception_listener:
+    class: AppBundle\EventListener\ExceptionListener
+    arguments: ["@kernel"]
+    tags:
+        - { name: kernel.event_listener, event: kernel.exception }
+
+  app.token_listener:
+    class: AppBundle\EventListener\TokenListener
+    arguments: ["@app.repository.auth", "@app.service.auth_user"]
+    tags:
+        - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+
+  app.command_handler_resolver:
+    class: AppBundle\Adapter\SymfonyCommandHandlerResolver
+    arguments: ["@service_container"]
+
+  app.event_bus:
+    class: AppBundle\Adapter\SymfonyEventBus
+    arguments: ["@event_dispatcher"]
+
+  app.query_dispatcher:
+    class: AppBundle\Adapter\DbalQueryDispatcher
+    arguments: ["@doctrine.dbal.default_connection"]
+
+  app.command_bus:
+    class: AppBundle\Adapter\SymfonyCommandBus
+    arguments: ["@app.command_handler_resolver", "@doctrine.orm.entity_manager", "@app.event_bus"]
+
+  app.service.auth_user:
+    class: AppBundle\Service\AuthUserService
+
+  app.service.auth:
+    class: AppBundle\Service\AuthService
+    arguments: ["@app.repository.auth"]
+
+  app.event_listener.log:
+    class: AppBundle\EventSubscriber\LogEventSubscriber
+    arguments: ["%kernel.logs_dir%"]
+    tags:
+      - { name: kernel.event_subscriber }
+
+  app.repository.auth:
+    class: AppBundle\Repository\AuthDoctrineRepository
+    arguments: ["@doctrine.orm.entity_manager"]
+
+
+
+
+
+  app.repository.project:
+    class: AppBundle\Repository\ProjectDoctrineRepository
+    arguments: ["@doctrine.orm.entity_manager"]
+
+  app.repository.user:
+    class: AppBundle\Repository\UserDoctrineRepository
+    arguments: ["@doctrine.orm.entity_manager"]
+
+  app.repository.tip:
+    class: AppBundle\Repository\TipDoctrineRepository
+    arguments: ["@doctrine.orm.entity_manager"]
+
+  app.command_handler.give_tip:
+    class: PayAssistantBundle\Command\Handler\GiveTipHandler
+    arguments: ["@app.event_bus", "@app.repository.tip", "@app.repository.user"]
+
+  app.command_handler.connect_user:
+    class: PayAssistantBundle\Command\Handler\ConnectUserHandler
+    arguments: ["@app.event_bus", "@app.repository.user"]
