@@ -16,13 +16,15 @@
         <div class="cover-container">
             <div class="masthead clearfix">
                 <div class="inner">
-                    <h3 class="masthead-brand">PayAssistant</h3>
+                    <h3 class="masthead-brand">
+                        <img src="{{ asset('assets/paya.png') }}" alt="PAYA - Pay Assistant">
+                    </h3>
                     <nav>
                         <ul class="nav masthead-nav">
                             <li{% if app.request.attributes.get("_route") == 'homepage' %} class="active"{% endif %}>
                                 <a href="{{ path('homepage') }}">Strona główna</a></li>
                             <li{% if app.request.attributes.get("_route") == 'howto' %} class="active"{% endif %}>
-                                <a href="{{ path('howto') }}">Jak to działa?</a></li>
+                                <a href="{{ path('howto') }}">Jak działa PAYA?</a></li>
                             <li{% if app.request.attributes.get("_route") == 'login' %} class="active"{% endif %}>
                                 <a href="{{ path('builder') }}">Strefa użytkownika</a></li>
                         </ul>
@@ -36,7 +38,7 @@
 
             <div class="mastfoot">
                 <div class="inner">
-                    <p>Made with <span>&hearts;</span> in Poland.</p>
+                    <p>Made with <span class="heart">&hearts;</span> during <span>bankITup</span>.</p>
                 </div>
             </div>
         </div>
