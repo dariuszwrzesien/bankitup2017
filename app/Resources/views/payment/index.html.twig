@@ -1,5 +1,9 @@
 {% extends 'layout_manage.html.twig' %}
 
+{% block header %}
+    <span>Twoje płatności</span> - 2 płatności do uregulowania
+{% endblock %}
+
 {% block body %}
     <div class="timeline timeline-line-dashed">
     {% for payment in payments %}
@@ -11,18 +15,35 @@
                 <i class="fa fa-money" aria-hidden="true"></i>
             </div>
             <div class="timeline-event {{ (payment.status == 'todo') ? 'timeline-event-info' : 'timeline-event-disable' }}">
+                {% if payment.overdeal %}
+                    <i class="fa fa-warning"></i>
+                {% else %}
+                    <i class="fa {{ (payment.status == 'todo') ? 'fa-clock-o' : 'fa-check' }}"></i>
+                {% endif %}
+
                 <div class="timeline-heading">
                     <h4>{{ payment.name }}</h4>
                 </div>
                 <div class="timeline-body">
-                    <p>{{ payment.amount }} {{ payment.currency }}</p>
+                    <p>Kwota: <strong>{{ payment.amount|number_format(2, ',', '.') }} {{ payment.currency }}</strong></p>
+                    {% if  payment.status == 'todo'  %}
+                        <p>
+                            Termin płatności: {{ payment.added }}
+                            {% if payment.overdeal %}
+                                <span class="badge badge-warning">przekroczono</span>
+                            {% endif %}
+                        </p>
+                    {%  endif %}
+                    {% if  payment.status == 'paid'  %}
+                        <p>Zapłacono: {{ payment.paid }}</p>
+                    {%  endif %}
                 </div>
+                {% if  payment.status == 'todo'  %}
+                    <button class="btn-pay"><i class="fa fa-money"></i> Zapłać teraz</button>
+                {%  endif %}
             </div>
         </div>
-
-        <span class="timeline-label">
-            <span class="label label-danger">{{ payment.added }}</span>
-        </span>
+        <span class="timeline-label"></span>
     {% endfor %}
     </div>
 {% endblock %}
