@@ -57,8 +57,17 @@
     };
 </script>
 <script src="{{ asset('assets/jquery/jquery-3.2.1.js') }}"></script>
+<script src="{{ asset('assets/knob/jquery.knob.js') }}"></script>
 <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets/app/app.js') }}"></script>
+<script>
+    $(".knob-payments").knob();
+    $(".knob-saves").knob({
+        'format': function (value) {
+            return value + "zł";
+        }
+    });
+</script>
 {% block javascripts %}{% endblock %}
 </body>
 </html>
