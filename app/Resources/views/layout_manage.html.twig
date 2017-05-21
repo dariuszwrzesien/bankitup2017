@@ -26,11 +26,16 @@
             <a class="navbar-brand" href="{{ path('homepage') }}">
                 <img src="{{ asset('assets/paya.png') }}" alt="PAYA - Pay Assistant"></a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="{{ path('auth_unauthenticate') }}">Wyloguj</a>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav" style="margin-left:30px;">
+                <li{% if app.request.attributes.get("_route") == 'payments' %} class="active"{% endif %}>
+                    <a href="{{ path('payments') }}">Twoje płatności  <span class="badge">2</span></a>
                 </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Połączone konta</a></li>
+                <li><a href="#">Ustawienia profilu</a></li>
+                <li><a href="{{ path('auth_unauthenticate') }}">Wyloguj</a></li>
             </ul>
         </div>
     </div>
@@ -45,11 +50,12 @@
     {% endfor %}
 
     {% block body %}{% endblock %}
-
-    <footer>
-        <hr>
-    </footer>
 </div>
+<footer>
+    <div class="container">
+        Made with <span class="heart">&hearts;</span> during <span>bankITup</span>.
+    </div>
+</footer>
 
 <script>
     var appConfig = {
