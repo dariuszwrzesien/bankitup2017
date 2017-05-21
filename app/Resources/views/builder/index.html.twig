@@ -1,8 +1,9 @@
 {% extends 'layout_manage.html.twig' %}
 
 {% block body %}
-    <div class="panel panel-default panel-20">
-        <div class="panel-heading"><a href="{{ path('payments') }}">Opłaty</a></div>
+    <div class="chart-container">
+    <div class="panel panel-default panel-200">
+        <div class="panel-heading"><a href="{{ path('payments') }}">Płatności</a></div>
         <div class="panel-body">
             <div class="text-center">
                 <input type="text" class="knob-payments"
@@ -10,20 +11,59 @@
                        value="2"
                        data-min="0"
                        data-max="5"
-                       data-width="100"
-                       data-height="100"
+                       data-width="150"
+                       data-height="150"
                        data-fgColor="#39CCCC">
                 <div class="knob-label">Faktur do zapłaty</div>
             </div>
         </div>
     </div>
-    <div class="panel panel-default panel-20">
+    <div class="panel panel-default panel-200">
         <div class="panel-heading"><a href="#">Oszczędności</a></div>
         <div class="panel-body">
             <div class="text-center">
-                <input type="text" class="knob-saves" data-readonly="true" value="30" data-width="100" data-height="100" data-fgColor="#66f475">
+                <input type="text" class="knob-saves" data-readonly="true" value="30" data-width="150" data-height="150" data-fgColor="#f1cb7f">
                 <div class="knob-label">Oszczędności w maju</div>
             </div>
         </div>
+    </div>
+    <div class="panel panel-default panel-200">
+        <div class="panel-heading"><a href="#">Saldo miesięczne</a></div>
+        <div class="panel-body">
+            <div class="text-center">
+                <input type="text" class="knob-balance" data-readonly="true" value="567" data-min="-2000"
+                       data-max="5000" data-width="150" data-height="150" data-fgColor="#80f2aa">
+                <div class="knob-label">Saldo konta za maj</div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default panel-200">
+        <div class="panel-heading"><a href="#">Zrealizowane cele</a></div>
+        <div class="panel-body">
+            <div class="text-center">
+                <input type="text" class="knob-aim" data-readonly="true" value="3" data-min="0"
+                       data-max="10" data-width="150" data-height="150" data-fgColor="#ff9ecb">
+                <div class="knob-label">Zrealizowane cele w maju</div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default panel-200">
+        <div class="panel-heading"><a href="#">Konfiguracja</a></div>
+        <div class="panel-body">
+            <div class="text-center">
+                <img src="{{ asset('assets/paya-avatar.png') }}" alt="Ustawienia">
+                <div class="knob-label">Konfiguracja asystenta</div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default panel-200">
+        <div class="panel-heading"><a href="#">Ustawienia</a></div>
+        <div class="panel-body">
+            <div class="text-center">
+                <img src="{{ asset('assets/settings.png') }}" alt="Ustawienia">
+                <div class="knob-label">Ustawienia profilu</div>
+            </div>
+        </div>
+    </div>
     </div>
 {% endblock %}

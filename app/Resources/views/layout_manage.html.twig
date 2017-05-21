@@ -68,7 +68,13 @@
 <script src="{{ asset('assets/app/app.js') }}"></script>
 <script>
     $(".knob-payments").knob();
+    $(".knob-aim").knob();
     $(".knob-saves").knob({
+        'format': function (value) {
+            return value + "zł";
+        }
+    });
+    $(".knob-balance").knob({
         'format': function (value) {
             return value + "zł";
         }
