@@ -96,3 +96,109 @@ table tbody .error-message {
         padding-bottom: 18px;
     }
 }
+
+/**
+ * Content
+ */
+#container > h2 > span {
+    background: #2a878f;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+/**
+ * Footer
+ */
+body > footer {
+    color: #fff;
+    background: #222;
+    margin-top: 40px;
+    padding: 50px 0;
+}
+
+/**
+ * User Panel - Timeline
+ */
+.timeline:before {
+    border-right-color: #000;
+}
+
+.timeline .timeline-item {
+    padding-right: 50px;
+    position: relative;
+}
+
+.timeline .timeline-item>.timeline-event {
+    border: 0;
+    border-radius: 0;
+}
+
+.timeline .timeline-item>.timeline-event .timeline-footer,
+.timeline .timeline-item>.timeline-event .timeline-heading {
+    padding: 10px 5px 0;
+}
+
+.timeline .timeline-item>.timeline-event > i {
+    font-size: 60px;
+    margin: 20px;
+    float: left;
+}
+
+.timeline .timeline-item>.timeline-event > i.fa-warning {
+    color: #e92424;
+}
+
+.timeline .timeline-item>.timeline-event .btn-pay {
+    right: 20px;
+    top: 20px;
+    border: 0;
+    border-radius: 0;
+    padding: 10px 20px;
+    position: absolute;
+    background: #2a878f;
+    color: #fff;
+}
+
+.timeline .timeline-item>.timeline-event .badge-warning {
+    background: #e92424;
+    color: #fff;
+}
+
+.timeline .timeline-item>.timeline-event.timeline-event-info {
+    color: #3c3c3c;
+    background: #dadada;
+    border: 0;
+}
+
+.timeline .timeline-item>.timeline-event.timeline-event-disable {
+    color: #fff;
+    background: #2a878f;
+    opacity: 1;
+}
+
+.timeline .timeline-item>.timeline-event .timeline-body p {
+    padding-bottom: 10px;
+}
+
+.timeline .timeline-item>.timeline-event .timeline-body strong {
+    font-size: 20px;
+}
+
+.timeline .timeline-item.timeline-item-right,
+.timeline .timeline-item:nth-of-type(even):not(.timeline-item-left) {
+    padding-left: 50px;
+}
+
+.timeline .timeline-item>.timeline-point {
+    right: -50px;
+    width: 50px;
+    height: 50px;
+    margin-top: -12px;
+    margin-left: 0px;
+    margin-right: 25px;
+}
+
+.timeline .timeline-item>.timeline-point i {
+    font-size: 32px;
+    margin-top: 7px;
+}
